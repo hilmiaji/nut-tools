@@ -1,4 +1,12 @@
 #!/bin/sh
+alert="ALERT!!!
+"
+tanggal=$(date "+%F %H:%M:%S")" 
+"
+lokasi="Nama UPS
+"
+mes="Shutting Down Display
+"
  case $1 in
        onbatt)
           logger -t upssched-cmd "UPS running on battery"
@@ -10,6 +18,7 @@
           ;;
         shutdownnow)
           /usr/bin/wall "UPS has been on battery for 60 seconds. Shutting down NOW!"
+          curl --data chat_id="-723095568" --data-urlencode "text=<b>${alert}</b><code>${tanggal}PLN OFF di ${lokasi}${mes}</code>" "https://api.telegram.org/bot5018630455:AAGtGqco1EKa4gNcyRJ-UKWvOnoGMKgeKHk/sendMessage?parse_mode=HTML"
           /sbin/upsmon -c fsd
         ;;
        shutdowncritical)
