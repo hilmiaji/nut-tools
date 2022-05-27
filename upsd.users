@@ -1,0 +1,5 @@
+[sysop]
+        password = sysop  
+        actions = SET
+        instcmds = all
+       upsmon master
