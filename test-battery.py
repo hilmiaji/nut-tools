@@ -28,5 +28,7 @@ while close_time > time.time():
 #print(array_time)
 upslokasi = subprocess.check_output("upsc -L", shell=True)
 hasil = "\n".join(array)
+
+sentmessage = "{}\n\n{}".format(upslokasi,hasil)
 print(hasil)
-requests.get(f"https://api.telegram.org/bot5018630455:AAGtGqco1EKa4gNcyRJ-UKWvOnoGMKgeKHk/sendMessage?chat_id=-769732161&parse_mode=html&text={upslokasi}\n{hasil}")
+requests.get(f"https://api.telegram.org/bot5018630455:AAGtGqco1EKa4gNcyRJ-UKWvOnoGMKgeKHk/sendMessage?chat_id=-769732161&parse_mode=html&text={sentmessage}")
