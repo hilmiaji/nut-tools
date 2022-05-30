@@ -4,7 +4,7 @@ from subprocess import Popen, PIPE
 import requests
 
 
-delay=15    ###for 15 minutes delay
+delay=60    ###for 15 minutes delay
 close_time=time.time()+delay
 #tes = subprocess.check_output("upscmd -u admin -p psn ups-psn test.battery.start 1", shell=True)
 #print("Send command to UPS : ",tes)
@@ -28,4 +28,4 @@ while close_time > time.time():
 #print(array_time)
 hasil = "\n".join(array)
 print(hasil)
-requests.get(f"https://api.telegram.org/bot5018630455:AAGtGqco1EKa4gNcyRJ-UKWvOnoGMKgeKHk/sendMessage?chat_id=-723095568&parse_mode=html&text={hasil}")
+requests.get(f"https://api.telegram.org/bot5018630455:AAGtGqco1EKa4gNcyRJ-UKWvOnoGMKgeKHk/sendMessage?chat_id=-769732161&parse_mode=html&text={hasil}")
