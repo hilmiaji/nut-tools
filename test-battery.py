@@ -17,11 +17,11 @@ while close_time > time.time():
 
     date = datetime.datetime.now().strftime("%H:%M:%S")
     output = subprocess.check_output(f"upsc {nama_ups} 2>&1 battery.voltage | grep -v '^Init SSL'", shell=True)
-    output2 = subprocess.check_output(f"upsc {nama_ups} 2>&1 ups.status | grep -v '^Init SSL'", shell=True)
+    #output2 = subprocess.check_output(f"upsc {nama_ups} 2>&1 ups.status | grep -v '^Init SSL'", shell=True)
     out = float(output.rstrip())
-    out2 = output2.rstrip()
-    out2 = out2.decode("utf-8")
-    data = ("{},{},{}".format(date,out,out2))
+    #out2 = output2.rstrip()
+    #out2 = out2.decode("utf-8")
+    data = ("{},{}".format(date,out))
 
     array.append(data)
 
