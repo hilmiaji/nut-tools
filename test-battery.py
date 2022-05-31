@@ -1,7 +1,5 @@
-import subprocess , os, time, datetime
-import csv
+import subprocess , os, time, datetime, requests
 from subprocess import Popen, PIPE
-import requests
 
 array = []
 
