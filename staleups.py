@@ -7,7 +7,7 @@ time.sleep(1)
 
 try :
     sudo_password = 'sysop'
-    theUPS = "ups-bpbd-teluk-wondama"
+    theUPS = "ups"
     command = "upsc " + theUPS + " 2>&1 | grep -v '^Init SSL'"
     ups = subprocess.check_output(command, shell=True)
     staleups = ups.decode('UTF-8')
