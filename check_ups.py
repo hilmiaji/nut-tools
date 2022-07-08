@@ -9,14 +9,24 @@ nama_UPS = "ups"
 def restart_ups():
     try:
         command1 = 'systemctl stop nut-server'.split()
-        command2 = 'systemctl start nut-server'.split()
+        command2 = 'systemctl stop nut-monitor'.split()
+        command3 = 'systemctl start nut-server'.split()
+        command4 = 'systemctl start nut-monitor'.split()
         p1 = Popen(['sudo', '-S'] + command1, stdin=PIPE, stderr=PIPE,
             universal_newlines=True)
         sudo_prompt = p1.communicate(sudo_password + '\n')
 
-        time.sleep(5)
-
         p2 = Popen(['sudo', '-S'] + command2, stdin=PIPE, stderr=PIPE,
+                universal_newlines=True)
+        sudo_prompt = p2.communicate(sudo_password + '\n')
+        
+        time.sleep(5)
+        
+        p3 = Popen(['sudo', '-S'] + command3, stdin=PIPE, stderr=PIPE,
+                universal_newlines=True)
+        sudo_prompt = p2.communicate(sudo_password + '\n')
+        
+        p4 = Popen(['sudo', '-S'] + command4, stdin=PIPE, stderr=PIPE,
                 universal_newlines=True)
         sudo_prompt = p2.communicate(sudo_password + '\n')
         print("sukses")
