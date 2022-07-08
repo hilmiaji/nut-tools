@@ -26,13 +26,15 @@ def restart_ups():
 try :
     sudo_password = 'sysop'
     
-    command = "upsc " + theUPS + " 2>&1 | grep -v '^Init SSL'"
+    command = "upsc " + nama_UPS + " 2>&1 | grep -v '^Init SSL'"
     ups = subprocess.check_output(command, shell=True)
     ups_status = ups.decode('UTF-8')
     if "stale" in ups_status:
         restart_ups()
     if "not connected" in ups_status:
         restart_ups()
+    else:
+        print("tidak ada error ditemukan")
 
 except Exception as e:
     raise e
