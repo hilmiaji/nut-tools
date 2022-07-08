@@ -8,10 +8,11 @@ nama_UPS = "ups"
 
 def restart_ups():
     try:
-        command1 = 'systemctl stop nut-server'.split()
-        command2 = 'systemctl stop nut-monitor'.split()
-        command3 = 'systemctl start nut-server'.split()
-        command4 = 'systemctl start nut-monitor'.split()
+        command1 = 'upsd -c reload'.split()
+        command2 = 'systemctl stop nut-server'.split()
+        command3 = 'systemctl stop nut-monitor'.split()
+        command4 = 'systemctl start nut-server'.split()
+        command5 = 'systemctl start nut-monitor'.split()
         p1 = Popen(['sudo', '-S'] + command1, stdin=PIPE, stderr=PIPE,
             universal_newlines=True)
         sudo_prompt = p1.communicate(sudo_password + '\n')
@@ -24,11 +25,14 @@ def restart_ups():
         
         p3 = Popen(['sudo', '-S'] + command3, stdin=PIPE, stderr=PIPE,
                 universal_newlines=True)
-        sudo_prompt = p2.communicate(sudo_password + '\n')
+        sudo_prompt = p3.communicate(sudo_password + '\n')
         
         p4 = Popen(['sudo', '-S'] + command4, stdin=PIPE, stderr=PIPE,
                 universal_newlines=True)
-        sudo_prompt = p2.communicate(sudo_password + '\n')
+        sudo_prompt = p4.communicate(sudo_password + '\n')
+        p5 = Popen(['sudo', '-S'] + command5, stdin=PIPE, stderr=PIPE,
+                universal_newlines=True)
+        sudo_prompt = p5.communicate(sudo_password + '\n')
         print("sukses")
     except Exception as e:
         raise e
