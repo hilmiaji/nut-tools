@@ -33,6 +33,8 @@ try :
         restart_ups()
     if "not connected" in ups_status:
         restart_ups()
+    if "Error" in ups_status:
+        restart_ups()
     else:
         print("tidak ada error ditemukan")
 
