@@ -31,7 +31,7 @@ try :
     ups_status = ups.decode('UTF-8')
     if "stale" in ups_status:
         restart_ups()
-    if "not connected" in ups_status
+    if "not connected" in ups_status:
         restart_ups()
 
 except Exception as e:
